@@ -20,7 +20,7 @@ public class Canvas {
      * @throws InvalidParameter in case of width or height less than 1.
      */
     public static Canvas create(int width, int height) throws InvalidParameter {
-        if(width <=0 || height<0)
+        if(width <=0 || height<=0)
             throw new InvalidParameter("Invalid width and height parameters.");
 
         Canvas canvas = new Canvas();

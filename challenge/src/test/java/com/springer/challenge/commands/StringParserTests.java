@@ -1,4 +1,4 @@
-package com.springer.challenge;
+package com.springer.challenge.commands;
 
 import com.springer.challenge.commands.StringParser;
 import org.junit.Assert;
