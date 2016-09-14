@@ -1,7 +1,8 @@
 package com.springer.challenge.graphics;
 
 /**
- * abstract class that will be implemented by line, rectangle and etc.
+ * This class is responsible to draw object into Canvas.
+ * This abstract class that will be implemented by Line, Rectangle and other graphics objects.
  */
 public abstract class Graphic {
     public void draw() throws GraphicsException {

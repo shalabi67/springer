@@ -3,7 +3,8 @@ package com.springer.challenge.graphics;
 import com.springer.challenge.commands.InvalidParameter;
 
 /**
- * This manages canvas functionality.
+ * canvas class manages functionality like putting and getting pixels. It also provides singleton functionality
+ * for this object.
  */
 public class Canvas {
     private static Canvas canvas = null;

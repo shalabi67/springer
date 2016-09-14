@@ -2,6 +2,10 @@ package com.springer.challenge.commands;
 
 import java.util.List;
 
+/**
+ * This class in responsible to validate command parameters and execute the command by creating the right graphics
+ * object and call draw method on it.
+ */
 public abstract class Command {
 	public static Command create(String inputCommand) throws InvalidParameter {
 		List<String> parameters = StringParser.parse(inputCommand);
@@ -28,9 +32,17 @@ public abstract class Command {
 
 		return input.charAt(0);
 	}
-	
+
+	/**
+	 * validate input parameter and initialize the command class.
+	 * @param parameters an ArrayList of string represents the input parameter for a specific command.
+	 * @throws InvalidParameter
+     */
 	protected abstract void init(List<String> parameters) throws InvalidParameter;
-	
+
+	/**
+	 * execute command.
+     */
 	public abstract void execute();	
 
 }
