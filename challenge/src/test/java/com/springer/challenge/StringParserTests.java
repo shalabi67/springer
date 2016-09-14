@@ -36,9 +36,9 @@ public class StringParserTests {
                 "\t\t\taa\t\t\tbb\t\t\tcc\t\t\t", //multi tab plit
             };
         for(String input : inputs) {
-            List<String> list = StringParser.parse(null);
+            List<String> list = StringParser.parse(input);
             Assert.assertNotNull(list);
-            Assert.assertEquals(3, list.size());
+            Assert.assertEquals(input, 3, list.size());
         }
     }
 
