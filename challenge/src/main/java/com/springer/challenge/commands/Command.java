@@ -10,7 +10,8 @@ public abstract class Command {
 			command = new InvalidCommand("Expected valid command.");
 		}
 		else {
-			switch(parameters.get(0)) {
+			char commandType = getCommand(parameters.get(0));
+			switch(commandType) {
 				
 			}
 			
@@ -19,6 +20,13 @@ public abstract class Command {
 		command.init(parameters);
 		return command;
 		
+	}
+	private static char getCommand(String input) throws InvalidParameter {
+		if(null == input || input.length() != 1 ) {
+			throw new InvalidParameter("Unknown command.");
+		}
+
+		return input.charAt(0);
 	}
 	
 	protected abstract void init(List<String> parameters) throws InvalidParameter;
