@@ -36,5 +36,6 @@ public class CanvasCommand extends Command {
     @Override
     public void execute() {
         Canvas.create(width, height);
+        Canvas.get().print();
     }
 }

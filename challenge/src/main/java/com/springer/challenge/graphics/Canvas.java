@@ -30,6 +30,10 @@ public class Canvas {
         canvas.height = height;
         Canvas.canvas = canvas;
 
+        for(int y=0;y<height;y++)
+            for (int x = 0; x < width; x++)
+                canvas.putPixel(' ',x,y);
+
         Logger.LogInfo("Create Canvas Width:" + width + " Height:" + height);
 
         return canvas;
@@ -42,6 +46,31 @@ public class Canvas {
     public static Canvas get() {
         return canvas;
     }
+
+    /**
+     * print canvas to console
+     */
+    public void print() {
+        int sides = 2;
+        System.out.println();
+        for(int i=0;i<width + 2;i++)
+            System.out.print("-");
+        System.out.println();
+
+        for(int y=0;y<height;y++) {
+            System.out.print("|");
+
+            for (int x = 0; x < width; x++)
+                System.out.print(getPixel(x,y));
+
+            System.out.println("|");
+        }
+
+        for(int i=0;i<width + 2;i++)
+            System.out.print("-");
+        System.out.println();
+    }
+
 
     public void putPixel(char data, int x, int y) {
         validateParameter(x, y);
