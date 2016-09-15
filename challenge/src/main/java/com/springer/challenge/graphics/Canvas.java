@@ -6,6 +6,7 @@ import com.springer.challenge.commands.InvalidParameter;
 /**
  * canvas class manages functionality like putting and getting pixels. It also provides singleton functionality
  * for this object.
+ * Canvas starts from (0,0).
  */
 public class Canvas {
     private static Canvas canvas = null;

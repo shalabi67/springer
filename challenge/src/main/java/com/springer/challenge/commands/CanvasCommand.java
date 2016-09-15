@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * The canvas command will be resposible to create a canavs by executing a canvas string command.
- * the string command is c w h. where w is the width and h is height
+ * the string command is c w h. where w is the width and h is height. Canvas starts from (0,0).
  */
 public class CanvasCommand extends Command {
     int width;
@@ -26,7 +26,7 @@ public class CanvasCommand extends Command {
             throw new InvalidParameter("Width should be an integer number.");
         }
         try {
-        height = Integer.parseInt(parameters.get(2));
+            height = Integer.parseInt(parameters.get(2));
         }catch(NumberFormatException e) {
             Logger.LogException("Height should be an integer number.");
             throw new InvalidParameter("Height should be an integer number.");

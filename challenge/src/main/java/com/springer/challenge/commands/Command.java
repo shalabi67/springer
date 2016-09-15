@@ -18,6 +18,7 @@ public abstract class Command {
 			switch(commandType) {
 				case 'c': command = new CanvasCommand(); break;
 				case 'q': command = new QuitCommand();break;
+				case 'l': command = new LineCommand(); break;
 			}
 			
 		}
