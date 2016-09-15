@@ -23,9 +23,9 @@ public class App
 				Command command = Command.create(input);
 				command.execute();
 			} catch(InvalidParameter invalidParam) {
-				System.out.print(invalidParam.getMessage());
+				System.out.println(invalidParam.getMessage());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				Logger.LogException(e.getMessage());
 				e.printStackTrace();
 			}
 

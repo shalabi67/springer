@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class CanvasSingletonTests {
     @Test
-    public void singletonTest() throws InvalidParameter {
+    public void singletonTest() {
         Canvas canvas = Canvas.create(10,20);
         Canvas canvas1 = Canvas.get();
         Assert.assertTrue(canvas == canvas1);
@@ -21,12 +21,12 @@ public class CanvasSingletonTests {
     }
 
     @Test //(expected=InvalidParameter.class) not used since we want to test multi values
-    public void exceptionTest() throws InvalidParameter {
+    public void exceptionTest() {
         int[] widths = {-1, 0 , 5 , 7, 0, -7};
-        int[] hights = {20, 10, -1, 0, 0, -5};
+        int[] heights = {20, 10, -1, 0, 0, -5};
         for(int i=0; i<widths.length; i++) {
             try {
-                Canvas canvas = Canvas.create(widths[i], hights[i]);
+                Canvas canvas = Canvas.create(widths[i], heights[i]);
                 Assert.fail();
             } catch(InvalidParameter e) {
             }
