@@ -1,5 +1,6 @@
 package com.springer.challenge.graphics;
 
+import com.springer.challenge.Logger;
 import com.springer.challenge.commands.InvalidParameter;
 
 /**
@@ -19,13 +20,17 @@ public class Canvas {
      * @return Canvas object and initialize canvas singleton.
      * @throws InvalidParameter in case of width or height less than 1.
      */
-    public static Canvas create(int width, int height) throws InvalidParameter {
+    public static Canvas create(int width, int height)  {
         if(width <=0 || height<=0)
             throw new InvalidParameter("Invalid width and height parameters.");
 
         Canvas canvas = new Canvas();
         canvas.screen = new char[width][height];
+        canvas.width = width;
+        canvas.height = height;
         Canvas.canvas = canvas;
+
+        Logger.LogInfo("Create Canvas Width:" + width + " Height:" + height);
 
         return canvas;
     }
@@ -39,12 +44,26 @@ public class Canvas {
     }
 
     public void putPixel(char data, int x, int y) {
+        validateParameter(x, y);
+        screen[x][y] = data;
 
     }
+
     public char getPixel(int x, int y) {
-        return ' ';
+        validateParameter(x, y);
+        return screen[x][y];
     }
 
+    private void validateParameter(int x, int y) {
+        if(x<0 || x>=width) {
+            Logger.LogInfo("Invalid x parameter. " + x);
+            throw new InvalidParameter("Invalid x parameter.");
+        }
+        if(y<0 || y>=height) {
+            Logger.LogInfo("Invalid y parameter. " + y);
+            throw new InvalidParameter("Invalid y parameter.");
+        }
+    }
 
     private char [][] screen = null;
     private int width;

@@ -9,7 +9,7 @@ public class InvalidCommand extends Command {
 	}
 	
 	@Override
-	protected void init(List<String> parameters) throws InvalidParameter {	
+	protected void init(List<String> parameters) {
 	}
 	
 	@Override

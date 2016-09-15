@@ -7,16 +7,17 @@ import java.util.List;
  * object and call draw method on it.
  */
 public abstract class Command {
-	public static Command create(String inputCommand) throws InvalidParameter {
+	public static Command create(String inputCommand) {
 		List<String> parameters = StringParser.parse(inputCommand);
-		Command command = null;
+		Command command = new InvalidCommand("Expected valid command.");;
 		if(parameters.size() == 0) {
-			command = new InvalidCommand("Expected valid command.");
+			return command;
 		}
 		else {
-			char commandType = getCommand(parameters.get(0));
+			char commandType = getCommand(parameters.get(0).toLowerCase());
 			switch(commandType) {
-				
+				case 'c': command = new CanvasCommand(); break;
+				case 'q': command = new QuitCommand();break;
 			}
 			
 		}
@@ -25,7 +26,7 @@ public abstract class Command {
 		return command;
 		
 	}
-	private static char getCommand(String input) throws InvalidParameter {
+	private static char getCommand(String input) {
 		if(null == input || input.length() != 1 ) {
 			throw new InvalidParameter("Unknown command.");
 		}
@@ -38,7 +39,7 @@ public abstract class Command {
 	 * @param parameters an ArrayList of string represents the input parameter for a specific command.
 	 * @throws InvalidParameter
      */
-	protected abstract void init(List<String> parameters) throws InvalidParameter;
+	protected abstract void init(List<String> parameters);
 
 	/**
 	 * execute command.
