@@ -15,12 +15,12 @@ public class CreateCommandTests {
     public void validCommandTest() throws InvalidParameter {
         String[] commands = { "c 10 20",
                 "C 10 20",
-                "l 1 2 3 4",
+               /* "l 1 2 3 4",
                 "L 1 2 3 4",
                 "R 1 2 3 4",
                 "r 1 2 3 4",
                 "b 1 3 3",
-                "B 1 2 3",
+                "B 1 2 3",*/
                 "Q",
                 "q"
         };
