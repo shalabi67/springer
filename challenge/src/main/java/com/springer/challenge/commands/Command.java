@@ -17,6 +17,7 @@ public abstract class Command {
 			char commandType = getCommand(parameters.get(0).toLowerCase());
 			switch(commandType) {
 				case 'c': command = new CanvasCommand(); break;
+				case 'q': command = new QuitCommand();break;
 			}
 			
 		}

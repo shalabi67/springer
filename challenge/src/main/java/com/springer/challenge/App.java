@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 import com.springer.challenge.commands.Command;
 import com.springer.challenge.commands.InvalidParameter;
+import com.springer.challenge.commands.QuitCommand;
 
 /**
  * Hello world!
@@ -17,7 +18,7 @@ public class App
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));;
 
-        while(true) {
+        while(!QuitCommand.isQuit()) {
         	try {
 				String input = reader.readLine();
 				Command command = Command.create(input);
