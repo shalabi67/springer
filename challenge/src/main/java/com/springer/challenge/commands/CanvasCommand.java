@@ -19,8 +19,18 @@ public class CanvasCommand extends Command {
             throw new InvalidParameter("Invalid Canvas command expected width and height parameters.");
         }
 
-        width = Integer.parseInt(parameters.get(1));
+        try {
+            width = Integer.parseInt(parameters.get(1));
+        }catch(NumberFormatException e) {
+            Logger.LogException("Width should be an integer number.");
+            throw new InvalidParameter("Width should be an integer number.");
+        }
+        try {
         height = Integer.parseInt(parameters.get(2));
+        }catch(NumberFormatException e) {
+            Logger.LogException("Height should be an integer number.");
+            throw new InvalidParameter("Height should be an integer number.");
+        }
     }
 
     @Override
