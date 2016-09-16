@@ -30,8 +30,13 @@ public class LineCommand extends Command {
 
 
     private void isValidIntegers(List<String> parameters) {
-        int width = Canvas.get().getWidth();
-        int height = Canvas.get().getHeight();
+        Canvas canvas = Canvas.get();
+        if(canvas == null) {
+            throw new InvalidParameter("Canvas not exist. use Canvas command to create canvas C width height");
+        }
+
+        int width = canvas.getWidth();
+        int height = canvas.getHeight();
         try {
             x1 = Integer.parseInt(parameters.get(1));
             validateParameter(x1, width);
