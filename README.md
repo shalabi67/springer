@@ -13,7 +13,7 @@ the functionality of the program is quite limited but this might change in the f
 At the moment, the program should support the following commands:
 
 #### **C w h** 
-Should create a new canvas of width w and height h.
+Should create a new canvas of width w and height h. Canvas starts from (0,0).
 
 #### **L x1 y1 x2 y2** 
 Should create a new line from (x1,y1) to (x2,y2). Currently only horizontal or vertical lines are supported. Horizontal and vertical lines will be drawn using the 'x' character.
@@ -41,3 +41,8 @@ canvas class manages functionality like putting and getting pixels. It also prov
 
 ###Graphic
 This class is responsible to draw object into Canvas. This abstract class that will be implemented by Line, Rectangle and other graphics objects.
+
+
+## Notes
+### Number of paramters
+commands ignores extra paramters, but fail in case of missing parameter.
