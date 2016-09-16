@@ -29,7 +29,7 @@ public abstract class Command {
 	}
 	private static char getCommand(String input) {
 		if(null == input || input.length() != 1 ) {
-			throw new InvalidParameter("Unknown command.");
+			throw new InvalidParameterException("Unknown command.");
 		}
 
 		return input.charAt(0);
@@ -38,13 +38,13 @@ public abstract class Command {
 	/**
 	 * validate input parameter and initialize the command class.
 	 * @param parameters an ArrayList of string represents the input parameter for a specific command.
-	 * @throws InvalidParameter
+	 * @throws InvalidParameterException
      */
 	protected abstract void init(List<String> parameters);
 
 	/**
 	 * execute command.
      */
-	public abstract void execute();	
+	public abstract void execute();
 
 }

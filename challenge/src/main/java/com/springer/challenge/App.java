@@ -5,11 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.springer.challenge.commands.Command;
-import com.springer.challenge.commands.InvalidParameter;
+import com.springer.challenge.commands.InvalidParameterException;
 import com.springer.challenge.commands.QuitCommand;
+import com.springer.challenge.graphics.GraphicsException;
 
 /**
- * Hello world!
+ * Paint command line application
  *
  */
 public class App 
@@ -23,9 +24,11 @@ public class App
 				String input = reader.readLine();
 				Command command = Command.create(input);
 				command.execute();
-			} catch(InvalidParameter invalidParam) {
+			} catch(InvalidParameterException invalidParam) {
 				System.out.println(invalidParam.getMessage());
-			} catch (IOException e) {
+			}  catch(GraphicsException graphicsException) {
+				System.out.println(graphicsException.getMessage());
+			}catch (IOException e) {
 				Logger.LogException(e.getMessage());
 				e.printStackTrace();
 			}

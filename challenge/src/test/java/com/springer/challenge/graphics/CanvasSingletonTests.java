@@ -1,6 +1,6 @@
 package com.springer.challenge.graphics;
 
-import com.springer.challenge.commands.InvalidParameter;
+import com.springer.challenge.commands.InvalidParameterException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class CanvasSingletonTests {
         Assert.assertTrue(canvas == canvas1);
     }
 
-    @Test //(expected=InvalidParameter.class) not used since we want to test multi values
+    @Test //(expected=InvalidParameterException.class) not used since we want to test multi values
     public void exceptionTest() {
         int[] widths = {-1, 0 , 5 , 7, 0, -7};
         int[] heights = {20, 10, -1, 0, 0, -5};
@@ -28,7 +28,7 @@ public class CanvasSingletonTests {
             try {
                 Canvas canvas = Canvas.create(widths[i], heights[i]);
                 Assert.fail();
-            } catch(InvalidParameter e) {
+            } catch(InvalidParameterException e) {
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.springer.challenge.commands;
 
+import com.springer.challenge.graphics.GraphicsException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,11 +14,11 @@ import org.junit.Test;
  */
 public class CreateCommandTests {
     @Test
-    public void validCommandTest() throws InvalidParameter {
-        String[] commands = { "c 10 20",
+    public void validCommandTest() throws InvalidParameterException {
+        String[] commands = { "c 40 40",
                 "C 10 20",
-                "l 1 2 3 4",
-                "L 1 2 3 4",
+                "l 1 2 1 4",
+                "L 1 2 3 2",
                 //TODO:
               /*  "R 1 2 3 4",
                 "r 1 2 3 4",
@@ -26,7 +27,6 @@ public class CreateCommandTests {
                 "Q",
                 "q"
         };
-        Command.create("c 40 40").execute();
 
         Command command = null;
         for(String input : commands) {
@@ -34,6 +34,7 @@ public class CreateCommandTests {
             if(command instanceof InvalidCommand) {
                 Assert.fail();
             }
+            command.execute();
         }
 
     }
@@ -53,8 +54,9 @@ public class CreateCommandTests {
                 if (!(command instanceof InvalidCommand)) {
                     Assert.fail();
                 }
+                command.execute();
             }
-            catch(InvalidParameter e) {
+            catch(InvalidParameterException e) {
 
             }
         }
@@ -63,7 +65,7 @@ public class CreateCommandTests {
     @Test
     public void noCanvasTest()  {
         String[] commands = {
-                "l 0 0 3 3",  //valid command but no canvas
+                "l 0 0 3 0",  //valid command but no canvas
                 //TODO:
                 /*
                 "r 0 0 3 3",  //valid command but no canvas
@@ -75,9 +77,10 @@ public class CreateCommandTests {
         for(String input : commands) {
             try {
                 command = Command.create(input);
+                command.execute();
                 Assert.fail(input);
             }
-            catch(InvalidParameter e) {
+            catch(GraphicsException e) {
 
             }
         }

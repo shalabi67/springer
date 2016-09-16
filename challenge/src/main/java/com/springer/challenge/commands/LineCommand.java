@@ -2,6 +2,7 @@ package com.springer.challenge.commands;
 
 import com.springer.challenge.Logger;
 import com.springer.challenge.graphics.Canvas;
+import com.springer.challenge.graphics.GraphicsException;
 import com.springer.challenge.graphics.Line;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class LineCommand extends Command {
     protected void init(List<String> parameters) {
         if(parameters.size() < 5) {
             Logger.LogError("Invalid Canvas command expected x1, y1, x2, y2 parameters.");
-            throw new InvalidParameter("Invalid Canvas command expected x1, y1, x2, y2 parameters.");
+            throw new InvalidParameterException("Invalid Canvas command expected x1, y1, x2, y2 parameters.");
         }
 
         isValidIntegers(parameters);
@@ -32,7 +33,7 @@ public class LineCommand extends Command {
     private void isValidIntegers(List<String> parameters) {
         Canvas canvas = Canvas.get();
         if(canvas == null) {
-            throw new InvalidParameter("Canvas not exist. use Canvas command to create canvas C width height");
+            throw new GraphicsException("Canvas not exist. use Canvas command to create canvas C width height");
         }
 
         int width = canvas.getWidth();
@@ -42,28 +43,28 @@ public class LineCommand extends Command {
             validateParameter(x1, width);
         }catch(NumberFormatException e) {
             Logger.LogException("x1 should be an integer number.");
-            throw new InvalidParameter("x1 should be an integer number.");
+            throw new InvalidParameterException("x1 should be an integer number.");
         }
         try {
             y1 = Integer.parseInt(parameters.get(2));
             validateParameter(y1, height);
         }catch(NumberFormatException e) {
             Logger.LogException("y1 should be an integer number.");
-            throw new InvalidParameter("y1 should be an integer number.");
+            throw new InvalidParameterException("y1 should be an integer number.");
         }
         try {
             x2 = Integer.parseInt(parameters.get(3));
             validateParameter(x2, width);
         }catch(NumberFormatException e) {
             Logger.LogException("x2 should be an integer number.");
-            throw new InvalidParameter("x2 should be an integer number.");
+            throw new InvalidParameterException("x2 should be an integer number.");
         }
         try {
             y2 = Integer.parseInt(parameters.get(4));
             validateParameter(y2, height);
         }catch(NumberFormatException e) {
             Logger.LogException("y2 should be an integer number.");
-            throw new InvalidParameter("y2 should be an integer number.");
+            throw new InvalidParameterException("y2 should be an integer number.");
         }
     }
 
@@ -71,7 +72,7 @@ public class LineCommand extends Command {
     private void validateParameter(int parameter, int width) {
         if(parameter<0 || parameter>width){
             Logger.LogError("Parameter out of range. " + parameter);
-            throw new InvalidParameter("Parameter out of range. " + parameter);
+            throw new InvalidParameterException("Parameter out of range. " + parameter);
         }
     }
 

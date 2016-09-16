@@ -8,7 +8,7 @@ public abstract class Graphic {
     public void draw() throws GraphicsException {
         Canvas canvas = Canvas.get();
         if(null == canvas) {
-            throw new GraphicsException("Canvas does notz exist. Use Canvas command to create a canvas.");
+            throw new GraphicsException("Canvas does not exist. Use Canvas command to create a canvas.");
         }
         draw(canvas);
     }

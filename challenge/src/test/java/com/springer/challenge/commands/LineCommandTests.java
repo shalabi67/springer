@@ -1,6 +1,5 @@
 package com.springer.challenge.commands;
 
-import com.springer.challenge.graphics.Canvas;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +42,7 @@ public class LineCommandTests {
             try {
                 Command.create(input);
                 Assert.fail();
-            }catch(InvalidParameter e) {
+            }catch(InvalidParameterException e) {
 
             }
         }

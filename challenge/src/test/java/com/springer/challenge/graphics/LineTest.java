@@ -7,6 +7,7 @@ import com.springer.challenge.commands.Command;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.internal.runners.model.EachTestNotifier;
 
 /**
  * This tests the Line class. it provides the following test cases:
@@ -29,6 +30,17 @@ public class LineTest {
             Assert.assertEquals(LineAdapter.getLineLength(line), CanvasMock.get().getPixelPutCount());
             Canvas.create(new CanvasMock(), canvasWidth, canvasHeight);
         }
+    }
+    @Test(expected = GraphicsException.class)
+    public void diagonalLineTest() {
+        Line line = new Line(0, 4, canvasWidth -1 , 14);
+        line.draw();
+    }
+
+    @Test(expected = GraphicsException.class)
+    public void nullCanvasTest() {
+        Line line = new Line(0, 4, canvasWidth -1 , 4);
+        line.draw(null);
     }
 
     int canvasWidth = 40;

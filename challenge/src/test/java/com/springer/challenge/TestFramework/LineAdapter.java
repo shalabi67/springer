@@ -1,6 +1,6 @@
 package com.springer.challenge.TestFramework;
 
-import com.springer.challenge.commands.InvalidParameter;
+import com.springer.challenge.commands.InvalidParameterException;
 import com.springer.challenge.graphics.Canvas;
 import com.springer.challenge.graphics.Line;
 
@@ -15,7 +15,7 @@ public class LineAdapter {
             return abs(line.getX1() - line.getX2()) + 1;
         else if(line.isVerticalLine())
             return abs(line.getY1() - line.getY2()) + 1;
-        throw new InvalidParameter("invalid line");
+        throw new InvalidParameterException("invalid line");
     }
 
     public static void isCorrect(Line line) {
