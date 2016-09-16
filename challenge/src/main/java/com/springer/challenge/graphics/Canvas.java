@@ -10,6 +10,7 @@ import com.springer.challenge.commands.InvalidParameter;
  */
 public class Canvas {
     private static Canvas canvas = null;
+    public static char point = 'x';
 
     protected Canvas(){
     }
@@ -22,10 +23,17 @@ public class Canvas {
      * @throws InvalidParameter in case of width or height less than 1.
      */
     public static Canvas create(int width, int height)  {
+        Canvas canvas = new Canvas();
+        create(canvas, width, height);
+
+        return canvas;
+    }
+
+    //this will help us in testing by providing mock canvas.
+    public static Canvas create(Canvas canvas, int width, int height)  {
         if(width <=0 || height<=0)
             throw new InvalidParameter("Invalid width and height parameters.");
 
-        Canvas canvas = new Canvas();
         canvas.screen = new char[width][height];
         canvas.width = width;
         canvas.height = height;
