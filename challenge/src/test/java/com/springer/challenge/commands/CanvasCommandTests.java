@@ -19,7 +19,7 @@ public class CanvasCommandTests {
                 command.execute();
                 Assert.fail();
             }
-            catch(InvalidParameter e) {
+            catch(InvalidParameterException e) {
 
             }
         }

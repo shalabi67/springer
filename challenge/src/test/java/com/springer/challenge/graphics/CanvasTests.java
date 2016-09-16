@@ -1,7 +1,6 @@
 package com.springer.challenge.graphics;
 
-import com.springer.challenge.commands.CanvasCommand;
-import com.springer.challenge.commands.InvalidParameter;
+import com.springer.challenge.commands.InvalidParameterException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,7 +31,7 @@ public class CanvasTests {
             try {
                 canvas.putPixel(ch, invalidWidthParam[i], 0);
                 Assert.fail();
-            } catch(InvalidParameter e) {
+            } catch(InvalidParameterException e) {
             }
         }
     }
@@ -44,7 +43,7 @@ public class CanvasTests {
             try {
                 canvas.getPixel(invalidWidthParam[i], 0);
                 Assert.fail();
-            } catch(InvalidParameter e) {
+            } catch(InvalidParameterException e) {
             }
         }
     }
@@ -56,7 +55,7 @@ public class CanvasTests {
             try {
                 canvas.putPixel(ch, 0, invalidHeightParam[i]);
                 Assert.fail();
-            } catch(InvalidParameter e) {
+            } catch(InvalidParameterException e) {
             }
         }
     }
@@ -68,7 +67,7 @@ public class CanvasTests {
             try {
                 canvas.getPixel(0, invalidHeightParam[i]);
                 Assert.fail();
-            } catch(InvalidParameter e) {
+            } catch(InvalidParameterException e) {
             }
         }
     }
