@@ -9,21 +9,24 @@ import org.junit.Test;
  * invalid command
  * upper an lower case commands.
  * Invalid input
+ * valid command but no canvas available
  */
 public class CreateCommandTests {
     @Test
     public void validCommandTest() throws InvalidParameter {
         String[] commands = { "c 10 20",
                 "C 10 20",
-               /* "l 1 2 3 4",
+                "l 1 2 3 4",
                 "L 1 2 3 4",
-                "R 1 2 3 4",
+                //TODO:
+              /*  "R 1 2 3 4",
                 "r 1 2 3 4",
                 "b 1 3 3",
                 "B 1 2 3",*/
                 "Q",
                 "q"
         };
+        Command.create("c 40 40").execute();
 
         Command command = null;
         for(String input : commands) {
@@ -56,4 +59,28 @@ public class CreateCommandTests {
             }
         }
     }
+
+    @Test
+    public void noCanvasTest()  {
+        String[] commands = {
+                "l 0 0 3 3",  //valid command but no canvas
+                //TODO:
+                /*
+                "r 0 0 3 3",  //valid command but no canvas
+                "b 0 0 3 3"  //valid command but no canvas
+                */
+        };
+
+        Command command = null;
+        for(String input : commands) {
+            try {
+                command = Command.create(input);
+                Assert.fail(input);
+            }
+            catch(InvalidParameter e) {
+
+            }
+        }
+    }
+
 }
