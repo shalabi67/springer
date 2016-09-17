@@ -9,8 +9,8 @@ public class Point {
         this.y = y;
     }
 
-    int x;
-    int y;
+    private int x;
+    private int y;
 
     public int getX() {
         return x;
@@ -27,7 +27,8 @@ public class Point {
 
         Point point = (Point) o;
 
-        if (x != point.x) return false;
+        if (x != point.x)
+            return false;
         return y == point.y;
 
     }

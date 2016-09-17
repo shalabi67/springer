@@ -8,9 +8,9 @@ import java.util.Queue;
  *
  */
 public class ColorFill extends Graphic {
-    int x;
-    int y;
-    char color;
+    private int x;
+    private int y;
+    private char color;
     public ColorFill(int x, int y, char color) {
         this.x = x;
         this.y = y;
@@ -24,8 +24,8 @@ public class ColorFill extends Graphic {
         fillColor(canvas);
     }
 
-    Hashtable<Point, Boolean> hashTable = new Hashtable<Point, Boolean>();
-    Queue<Point> queue = new LinkedList<Point>();
+    private Hashtable<Point, Boolean> hashTable = new Hashtable<Point, Boolean>();
+    private Queue<Point> queue = new LinkedList<Point>();
     private void fillColor(Canvas canvas) {
         Point point = new Point(x,y);
         queue.add(point);
@@ -41,8 +41,8 @@ public class ColorFill extends Graphic {
 
     /**
      * for every point the method try to add four points, above, down, left and right the point.
-     * @param point
-     * @param canvas
+     * @param point the starting point
+     * @param canvas used to get canvas height and width
      */
     private void addPoints(Point point, Canvas canvas) {
         int x = point.getX();

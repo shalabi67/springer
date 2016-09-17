@@ -13,9 +13,9 @@ import java.util.List;
  * R x y c
  */
 public class ColorFillCommand extends Command {
-    int x;
-    int y;
-    char color;
+    private int x;
+    private int y;
+    private char color;
     @Override
     protected void init(List<String> parameters) {
         if(parameters.size() < 4) {

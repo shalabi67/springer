@@ -2,7 +2,6 @@ package com.springer.challenge.commands;
 
 import com.springer.challenge.Logger;
 import com.springer.challenge.graphics.Canvas;
-import com.springer.challenge.graphics.GraphicsException;
 import com.springer.challenge.graphics.Line;
 import com.springer.challenge.graphics.Point;
 
@@ -16,10 +15,10 @@ import java.util.List;
  * will be drawn using the 'x' character.
  */
 public class LineCommand extends Command {
-    int x1;
-    int y1;
-    int x2;
-    int y2;
+    private int x1;
+    private int y1;
+    private int x2;
+    private int y2;
     @Override
     protected void init(List<String> parameters) {
         if(parameters.size() < 5) {

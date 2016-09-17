@@ -6,12 +6,12 @@ import com.springer.challenge.graphics.Canvas;
 import java.util.List;
 
 /**
- * The canvas command will be resposible to create a canavs by executing a canvas string command.
+ * The canvas command will be responsible to create a canvas by executing a canvas string command.
  * the string command is c w h. where w is the width and h is height. Canvas starts from (0,0).
  */
 public class CanvasCommand extends Command {
-    int width;
-    int height;
+    private int width;
+    private int height;
     @Override
     protected void init(List<String> parameters) throws InvalidParameterException {
         if(parameters.size() < 3) {

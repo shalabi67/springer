@@ -7,8 +7,8 @@ import java.util.List;
 public class StringParser {
 	/**
 	 * This function will split the string based on white spaces in this case normal space and tab.
-	 * @param data
-	 * @return
+	 * @param data string command like c w h
+	 * @return list of string of the data command
      */
 	public static List<String> parse(String data) {
 		List<String> list = new ArrayList<String>();
