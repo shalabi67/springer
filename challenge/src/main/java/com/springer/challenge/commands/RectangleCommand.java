@@ -1,7 +1,10 @@
 package com.springer.challenge.commands;
 
 import com.springer.challenge.Logger;
+import com.springer.challenge.graphics.Canvas;
+import com.springer.challenge.graphics.Line;
 import com.springer.challenge.graphics.Point;
+import com.springer.challenge.graphics.Rectangle;
 
 import java.util.List;
 
@@ -38,6 +41,8 @@ public class RectangleCommand extends Command{
 
     @Override
     public void execute() {
-
+        Rectangle rectangle = new Rectangle(x1,y1,x2,y2);
+        rectangle.draw();
+        Canvas.get().print();
     }
 }

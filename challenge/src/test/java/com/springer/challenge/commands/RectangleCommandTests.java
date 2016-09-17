@@ -18,9 +18,11 @@ public class RectangleCommandTests {
         command.execute();
     }
     @Test
-    public void validLineCommandsTest() {
+    public void validRectangleCommandsTest() {
+        Command command;
         for(String input : valid) {
-            Command.create(input);
+            command = Command.create(input);
+            command.execute();
         }
     }
     @Test
