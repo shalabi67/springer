@@ -21,7 +21,7 @@ public abstract class Command {
 				case 'c': command = new CanvasCommand(); break;
 				case 'q': command = new QuitCommand();break;
 				case 'l': command = new LineCommand(); break;
-				//case 'r': command = new RectangleCommand(); break;
+				case 'r': command = new RectangleCommand(); break;
 			}
 			
 		}
@@ -51,25 +51,6 @@ public abstract class Command {
 	public abstract void execute();
 
 
-	protected int getValidInteger(String value, int width, String paramName) {
-		int parameter;
-		try {
-			parameter = Integer.parseInt(value);
-			validateParameter(parameter, width);
-			return parameter;
-		}catch(NumberFormatException e) {
-			String message = paramName + " should be an integer number.";
-			Logger.LogException(message);
-			throw new InvalidParameterException(message);
-		}
-	}
 
-
-	protected void validateParameter(int parameter, int width) {
-		if(parameter<0 || parameter>width){
-			Logger.LogError("Parameter out of range. " + parameter);
-			throw new InvalidParameterException("Parameter out of range. " + parameter);
-		}
-	}
 
 }

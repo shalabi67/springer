@@ -1,25 +1,20 @@
 package com.springer.challenge.commands;
 
 import com.springer.challenge.Logger;
-import com.springer.challenge.graphics.Canvas;
-import com.springer.challenge.graphics.GraphicsException;
-import com.springer.challenge.graphics.Line;
 import com.springer.challenge.graphics.Point;
 
 import java.util.List;
 
 /**
- * This class will be responsible to draw a line into canvas. the command is L x1 y1 x2 y2
- * where:
- * Should create a new line from (x1,y1) to (x2,y2). Currently only
- * horizontal or vertical lines are supported. Horizontal and vertical lines
- * will be drawn using the 'x' character.
+ * Should create a new rectangle, whose upper left corner is (x1,y1) and lower right corner is (x2,y2).
+ * It will be drawn using the 'x' character.
  */
-public class LineCommand extends Command {
+public class RectangleCommand extends Command{
     int x1;
     int y1;
     int x2;
     int y2;
+
     @Override
     protected void init(List<String> parameters) {
         if(parameters.size() < 5) {
@@ -29,8 +24,6 @@ public class LineCommand extends Command {
 
         initValidIntegers(parameters);
     }
-
-
     private void initValidIntegers(List<String> parameters) {
         Parameter param = new Parameter(parameters);
 
@@ -43,15 +36,8 @@ public class LineCommand extends Command {
         y2 = point.getY();
     }
 
-
-
     @Override
     public void execute() {
-        Line line = new Line(x1,y1,x2,y2);
-        line.draw();
-        Canvas.get().print();
+
     }
-
-
-
 }
