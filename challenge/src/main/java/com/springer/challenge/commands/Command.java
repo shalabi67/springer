@@ -22,6 +22,7 @@ public abstract class Command {
 				case 'q': command = new QuitCommand();break;
 				case 'l': command = new LineCommand(); break;
 				case 'r': command = new RectangleCommand(); break;
+				case 'b': command = new ColorFillCommand(); break;
 			}
 			
 		}
