@@ -36,45 +36,24 @@ public class LineCommand extends Command {
             throw new GraphicsException("Canvas not exist. use Canvas command to create canvas C width height");
         }
 
-        int width = canvas.getWidth();
-        int height = canvas.getHeight();
-        try {
-            x1 = Integer.parseInt(parameters.get(1));
-            validateParameter(x1, width);
-        }catch(NumberFormatException e) {
-            Logger.LogException("x1 should be an integer number.");
-            throw new InvalidParameterException("x1 should be an integer number.");
-        }
-        try {
-            y1 = Integer.parseInt(parameters.get(2));
-            validateParameter(y1, height);
-        }catch(NumberFormatException e) {
-            Logger.LogException("y1 should be an integer number.");
-            throw new InvalidParameterException("y1 should be an integer number.");
-        }
-        try {
-            x2 = Integer.parseInt(parameters.get(3));
-            validateParameter(x2, width);
-        }catch(NumberFormatException e) {
-            Logger.LogException("x2 should be an integer number.");
-            throw new InvalidParameterException("x2 should be an integer number.");
-        }
-        try {
-            y2 = Integer.parseInt(parameters.get(4));
-            validateParameter(y2, height);
-        }catch(NumberFormatException e) {
-            Logger.LogException("y2 should be an integer number.");
-            throw new InvalidParameterException("y2 should be an integer number.");
-        }
+        int width = canvas.getWidth() - 1;
+        int height = canvas.getHeight() - 1;
+
+        String value = parameters.get(1);
+        x1 = getValidInteger(value, width, "x1");
+
+        value = parameters.get(2);
+        y1 = getValidInteger(value, height, "y1");
+
+        value = parameters.get(3);
+        x2 = getValidInteger(value, width, "x2");
+
+        value = parameters.get(4);
+        y2 = getValidInteger(value, height, "y2");
+
     }
 
 
-    private void validateParameter(int parameter, int width) {
-        if(parameter<0 || parameter>width){
-            Logger.LogError("Parameter out of range. " + parameter);
-            throw new InvalidParameterException("Parameter out of range. " + parameter);
-        }
-    }
 
     @Override
     public void execute() {

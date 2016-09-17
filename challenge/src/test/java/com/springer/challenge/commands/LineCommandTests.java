@@ -14,7 +14,7 @@ import org.junit.Test;
 public class LineCommandTests {
     @Before
     public void setup() {
-        Command command = Command.create("c " + canvasHeight + " " + canvasHeight);
+        Command command = Command.create("c " + canvasWidth + " " + canvasHeight);
         command.execute();
     }
     @Test
@@ -41,7 +41,7 @@ public class LineCommandTests {
         for(String input : list) {
             try {
                 Command.create(input);
-                Assert.fail();
+                Assert.fail(input);
             }catch(InvalidParameterException e) {
 
             }
@@ -50,7 +50,7 @@ public class LineCommandTests {
 
 
     int canvasWidth = 40;
-    int canvasHeight = 39;
+    int canvasHeight = 30;
 
     String[] valid = {
             String.format("l 0 0 %s  %s", canvasWidth -1 , canvasHeight -1),
