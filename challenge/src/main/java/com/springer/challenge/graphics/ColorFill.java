@@ -38,6 +38,12 @@ public class ColorFill extends Graphic {
             addPoints(point, canvas);
         }
     }
+
+    /**
+     * for every point the method try to add four points, above, down, left and right the point.
+     * @param point
+     * @param canvas
+     */
     private void addPoints(Point point, Canvas canvas) {
         int x = point.getX();
         int y = point.getY();
@@ -58,9 +64,9 @@ public class ColorFill extends Graphic {
     }
 
     private void addPoint(Canvas canvas, int x, int y) {
-        if(Canvas.point != canvas.getPixel(x, y)) {
+        if(Canvas.point != canvas.getPixel(x, y)) { //is line or rectangle
             Point point = new Point(x, y);
-            if(!hashTable.containsKey(point)) {
+            if(!hashTable.containsKey(point)) { // did we consider this point ( this will prevent infinite loop)
                 hashTable.put(point, true);
                 queue.add(point);
             }

@@ -19,11 +19,10 @@ public class CreateCommandTests {
                 "C 10 20",
                 "l 1 2 1 4",
                 "L 1 2 3 2",
-                //TODO:
-              /*  "R 1 2 3 4",
+                "R 1 2 3 4",
                 "r 1 2 3 4",
                 "b 1 3 3",
-                "B 1 2 3",*/
+                "B 1 2 3",
                 "Q",
                 "q"
         };
@@ -62,28 +61,6 @@ public class CreateCommandTests {
         }
     }
 
-    @Test
-    public void noCanvasTest()  {
-        String[] commands = {
-                "l 0 0 3 0",  //valid command but no canvas
-                //TODO:
-                /*
-                "r 0 0 3 3",  //valid command but no canvas
-                "b 0 0 3 3"  //valid command but no canvas
-                */
-        };
 
-        Command command = null;
-        for(String input : commands) {
-            try {
-                command = Command.create(input);
-                command.execute();
-                Assert.fail(input);
-            }
-            catch(GraphicsException e) {
-
-            }
-        }
-    }
 
 }

@@ -72,8 +72,8 @@ public class ColorFillCommandTests {
     };
 
     String[] nonIntegerParameter  = {
-            "l aa 1 c",
-            "l 1 aa c",
-            "l 1 2 aa"
+            "B aa 1 c",
+            "B 1 aa c",
+            "b 1 2 aa"
     };
 }

@@ -9,7 +9,7 @@ import com.springer.challenge.commands.InvalidParameterException;
  * Canvas starts from (0,0).
  */
 public class Canvas {
-    private static Canvas canvas = null;
+    static Canvas canvas = null;
     public static char point = 'x';
 
     protected Canvas(){
