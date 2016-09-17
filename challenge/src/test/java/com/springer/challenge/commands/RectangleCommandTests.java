@@ -5,22 +5,24 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Tests LineCommand. It covers the following test cases:
- * valid line commands
+ * Tests RectangleCommand. It covers the following test cases:
+ * valid rectangle commands
  * out of range
  * wrong number of parameters
  * non integer parameters
  */
-public class LineCommandTests {
+public class RectangleCommandTests {
     @Before
     public void setup() {
         Command command = Command.create("c " + canvasWidth + " " + canvasHeight);
         command.execute();
     }
     @Test
-    public void validLineCommandsTest() {
+    public void validRectangleCommandsTest() {
+        Command command;
         for(String input : valid) {
-            Command.create(input);
+            command = Command.create(input);
+            command.execute();
         }
     }
     @Test
@@ -53,31 +55,30 @@ public class LineCommandTests {
     int canvasHeight = 30;
 
     String[] valid = {
-            String.format("l 0 0 %s  %s", canvasWidth -1 , canvasHeight -1),
-            String.format("l %s %s 0 0", canvasWidth -1 , canvasHeight -1),
-            "L 0 1 8 9",
-            "L 0 1 8 9 111"
+            String.format("r 0 0 %s  %s", canvasWidth -1 , canvasHeight -1),
+            String.format("r %s %s 0 0", canvasWidth -1 , canvasHeight -1),
+            "R 0 1 8 9",
+            "R 0 1 8 9 111"
     };
     String[] outOfRange = {
-            String.format("l 0 0 %s  %s", canvasWidth , canvasHeight),
-            String.format("l 0 0 %s  %s", canvasWidth +1 , canvasHeight+1),
-            String.format("l 1 1 %s  %s", canvasWidth , canvasHeight),
-            "L -1 1 8 9",
-            "L 0 -1 8 9"
+            String.format("r 0 0 %s  %s", canvasWidth , canvasHeight),
+            String.format("r 0 0 %s  %s", canvasWidth +1 , canvasHeight+1),
+            String.format("r 1 1 %s  %s", canvasWidth , canvasHeight),
+            "R -1 1 8 9",
+            "R 0 -1 8 9"
     };
 
     String[] wongArgumentsNumber  = {
-        "l",
-        "l 1",
-        "l 1 2",
-        "l 1 2 3"
+            "r",
+            "r 1",
+            "r 1 2",
+            "r 1 2 3"
     };
 
     String[] nonIntegerParameter  = {
-            "l aa 1 2 2",
-            "l 1 aa 2 2",
-            "l 1 2 aa 2",
-            "l 1 2 3 aa"
+            "r aa 1 2 2",
+            "r 1 aa 2 2",
+            "r 1 2 aa 2",
+            "r 1 2 3 aa"
     };
-
 }

@@ -1,5 +1,7 @@
 package com.springer.challenge.commands;
 
+import com.springer.challenge.Logger;
+
 import java.util.List;
 
 /**
@@ -19,6 +21,7 @@ public abstract class Command {
 				case 'c': command = new CanvasCommand(); break;
 				case 'q': command = new QuitCommand();break;
 				case 'l': command = new LineCommand(); break;
+				case 'r': command = new RectangleCommand(); break;
 			}
 			
 		}
@@ -46,5 +49,8 @@ public abstract class Command {
 	 * execute command.
      */
 	public abstract void execute();
+
+
+
 
 }
