@@ -17,7 +17,7 @@ public class CanvasCommandTests {
             try {
                 command = Command.create(input);
                 command.execute();
-                Assert.fail();
+                Assert.fail(input);
             }
             catch(InvalidParameterException e) {
 
@@ -25,7 +25,7 @@ public class CanvasCommandTests {
         }
     }
 
-    String[] commands = {
+    private String[] commands = {
         "c 10",
             "c as 10",
             "c 15 as",

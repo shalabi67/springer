@@ -1,6 +1,5 @@
 package com.springer.challenge.commands;
 
-import com.springer.challenge.graphics.GraphicsException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,14 +14,14 @@ import org.junit.Test;
 public class CreateCommandTests {
     @Test
     public void validCommandTest() throws InvalidParameterException {
-        String[] commands = { "c 40 40",
-                "C 10 20",
+         String[] commands = { "c 40 40",
+                "C 40 60",
                 "l 1 2 1 4",
                 "L 1 2 3 2",
                 "R 1 2 3 4",
                 "r 1 2 3 4",
-                "b 1 3 3",
-                "B 1 2 3",
+                "b 1 3 o",
+                "B 1 2 o",
                 "Q",
                 "q"
         };
