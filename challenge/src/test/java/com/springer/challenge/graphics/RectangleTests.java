@@ -1,9 +1,7 @@
 package com.springer.challenge.graphics;
 
 import com.springer.challenge.TestFramework.CanvasMock;
-import com.springer.challenge.TestFramework.LineAdapter;
 import com.springer.challenge.TestFramework.RectangleAdapter;
-import com.springer.challenge.commands.Command;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +17,6 @@ public class RectangleTests {
     }
     @Test
     public void validTest() {
-        Command command;
         for(Rectangle rectangle : valid) {
             CanvasMock.get().resetPixelPutCount();
             rectangle.draw();
@@ -31,10 +28,10 @@ public class RectangleTests {
     }
 
 
-    int canvasWidth = 40;
-    int canvasHeight = 30;
+    private int canvasWidth = 40;
+    private int canvasHeight = 30;
 
-    Rectangle[] valid = {
+    private Rectangle[] valid = {
             new Rectangle(0, 14, canvasWidth -1 , canvasHeight -1),
             new Rectangle(0, 0, canvasWidth -1 , canvasHeight -1),
             new Rectangle(0, 0, (canvasWidth -1)/2 , (canvasHeight -1)/2),

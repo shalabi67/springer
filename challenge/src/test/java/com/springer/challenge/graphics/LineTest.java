@@ -1,13 +1,10 @@
 package com.springer.challenge.graphics;
 
-import com.springer.challenge.Logger;
 import com.springer.challenge.TestFramework.CanvasMock;
 import com.springer.challenge.TestFramework.LineAdapter;
-import com.springer.challenge.commands.Command;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.internal.runners.model.EachTestNotifier;
 
 /**
  * This tests the Line class. it provides the following test cases:
@@ -21,7 +18,6 @@ public class LineTest {
     }
     @Test
     public void validTest() {
-        Command command;
         for(Line line : valid) {
             CanvasMock.get().resetPixelPutCount();
             line.draw();
@@ -43,10 +39,10 @@ public class LineTest {
         line.draw(null);
     }
 
-    int canvasWidth = 40;
-    int canvasHeight = 39;
+    private int canvasWidth = 40;
+    private int canvasHeight = 39;
 
-    Line[] valid = {
+    private Line[] valid = {
             new Line(0, 14, canvasWidth -1 , 14),
             new Line(14, 0,  14, canvasHeight -1),
             //valid edge horizontal

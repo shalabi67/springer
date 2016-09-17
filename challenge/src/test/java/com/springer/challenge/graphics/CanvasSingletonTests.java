@@ -26,7 +26,7 @@ public class CanvasSingletonTests {
         int[] heights = {20, 10, -1, 0, 0, -5};
         for(int i=0; i<widths.length; i++) {
             try {
-                Canvas canvas = Canvas.create(widths[i], heights[i]);
+                Canvas.create(widths[i], heights[i]);
                 Assert.fail();
             } catch(InvalidParameterException e) {
             }

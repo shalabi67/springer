@@ -52,7 +52,7 @@ public class Parameter {
     }
 
 
-    int width;
-    int height;
+    private int width;
+    private int height;
     List<String> parameters;
 }

@@ -9,7 +9,7 @@ import com.springer.challenge.commands.InvalidParameterException;
  * Canvas starts from (0,0).
  */
 public class Canvas {
-    private static Canvas canvas = null;
+    static Canvas canvas = null;
     public static char point = 'x';
 
     protected Canvas(){
@@ -60,7 +60,6 @@ public class Canvas {
      * print canvas to console
      */
     public void print() {
-        int sides = 2;
         System.out.println();
         for(int i=0;i<width + 2;i++)
             System.out.print("-");

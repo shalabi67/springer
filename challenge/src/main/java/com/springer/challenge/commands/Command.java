@@ -1,7 +1,5 @@
 package com.springer.challenge.commands;
 
-import com.springer.challenge.Logger;
-
 import java.util.List;
 
 /**
@@ -11,7 +9,7 @@ import java.util.List;
 public abstract class Command {
 	public static Command create(String inputCommand) {
 		List<String> parameters = StringParser.parse(inputCommand);
-		Command command = new InvalidCommand("Expected valid command.");;
+		Command command = new InvalidCommand("Expected valid command.");
 		if(parameters.size() == 0) {
 			return command;
 		}
@@ -22,6 +20,7 @@ public abstract class Command {
 				case 'q': command = new QuitCommand();break;
 				case 'l': command = new LineCommand(); break;
 				case 'r': command = new RectangleCommand(); break;
+				case 'b': command = new ColorFillCommand(); break;
 			}
 			
 		}
@@ -41,7 +40,6 @@ public abstract class Command {
 	/**
 	 * validate input parameter and initialize the command class.
 	 * @param parameters an ArrayList of string represents the input parameter for a specific command.
-	 * @throws InvalidParameterException
      */
 	protected abstract void init(List<String> parameters);
 

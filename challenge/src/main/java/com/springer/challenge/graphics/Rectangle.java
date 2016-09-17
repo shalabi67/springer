@@ -55,10 +55,10 @@ public class Rectangle extends Graphic {
         line.draw();
     }
 
-    int x1;
-    int y1;
-    int x2;
-    int y2;
+    private int x1;
+    private int y1;
+    private int x2;
+    private int y2;
 
     public int getX1() {
         return x1;
