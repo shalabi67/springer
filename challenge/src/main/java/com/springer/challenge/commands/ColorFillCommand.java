@@ -1,6 +1,8 @@
 package com.springer.challenge.commands;
 
 import com.springer.challenge.Logger;
+import com.springer.challenge.graphics.Canvas;
+import com.springer.challenge.graphics.ColorFill;
 import com.springer.challenge.graphics.Point;
 
 import java.util.List;
@@ -44,6 +46,9 @@ public class ColorFillCommand extends Command {
 
     @Override
     public void execute() {
+        ColorFill colorFill = new ColorFill(x, y, color);
+        colorFill.draw();
 
+        Canvas.get().print();
     }
 }
