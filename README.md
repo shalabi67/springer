@@ -44,5 +44,11 @@ This class is responsible to draw object into Canvas. This abstract class that w
 
 
 ## Notes
+### Canvas 
+canvas starts at (0,0) and ends at (width-1, length-1)
+
 ### Number of paramters
 commands ignores extra paramters, but fail in case of missing parameter.
+
+### Edge represents closed path.
+for example for Point(2,2) if Point(1,2) and Point(2,3) are part of a path, then that path is cosidered closed from that side.
